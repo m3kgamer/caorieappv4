@@ -256,9 +256,40 @@
         </div>
     </div>
 
+    <!-- Barcode Scanner Modal -->
+    <div id="scannerModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
+        <div class="glass-card p-6 rounded-2xl max-w-lg w-full mx-4 scale-in">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Scan Barcode</h3>
+                <button id="closeScannerBtn" class="text-gray-500 hover:text-gray-700 transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="scannerContainer" class="relative bg-black rounded-xl overflow-hidden mb-4" style="height: 400px;">
+                <div id="interactive" class="viewport w-full h-full"></div>
+
+                <!-- Scanning overlay -->
+                <div id="scannerOverlay" class="absolute inset-0 pointer-events-none">
+                    <div class="absolute inset-0 border-4 border-green-500 opacity-0" id="detectionBox"></div>
+                    <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-green-500" id="scanLine"></div>
+                </div>
+            </div>
+
+            <p id="scannerStatus" class="text-center text-sm text-gray-600">
+                Point your camera at a barcode...
+            </p>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="barcode-db.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
     <script src="storage.js"></script>
+    <script src="barcode-db.js"></script>
+    <script src="barcode-scanner.js"></script>
     <script src="foods.js"></script>
 </body>
 
